@@ -21,9 +21,9 @@ export default function ContactForm() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus('submitting');
-    
+
     try {
-      const response = await fetch('http://localhost:5000/api/contact', {
+      const response = await fetch('https://abishek-1-ffi0.onrender.com/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData)
@@ -47,16 +47,16 @@ export default function ContactForm() {
   return (
     <section id="contact" className="py-24 px-4 relative overflow-hidden">
       <div className="max-w-4xl mx-auto relative z-10">
-        
+
         {/* Section Header */}
-        <motion.div 
+        <motion.div
           className="text-center mb-16"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
           <div className="flex justify-center mb-6">
-             <div className="section-divider-space" />
+            <div className="section-divider-space" />
           </div>
           <h2 className="font-orbitron font-black text-4xl md:text-5xl text-white uppercase tracking-widest text-shadow-glow">
             Let&apos;s Connect
@@ -79,7 +79,7 @@ export default function ContactForm() {
           <div className="absolute bottom-0 right-0 w-12 h-1 bg-nebula shadow-nebula-glow" />
 
           {status === 'success' ? (
-            <motion.div 
+            <motion.div
               className="text-center py-20"
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -89,7 +89,7 @@ export default function ContactForm() {
               <p className="font-inter text-gray-400 max-w-sm mx-auto">
                 Your message has been beamed across the cosmic void. I will respond to your uplink shortly.
               </p>
-              <button 
+              <button
                 onClick={() => setStatus('idle')}
                 className="mt-10 font-rajdhani font-bold text-xs tracking-[0.3em] uppercase text-cyan border border-cyan/30 px-8 py-3 rounded-full hover:bg-cyan/10 transition-all"
               >
