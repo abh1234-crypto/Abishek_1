@@ -17,23 +17,30 @@ const PORT = process.env.PORT || 5000;
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// CORS — allow Vercel frontend + local dev
+// ── CORS Configuration ───────────────────────────────────────────
+// Simplified to allow your Vercel URL and Localhost without slash errors
 const allowedOrigins = [
-  process.env.FRONTEND_URL || 'https://abishek-1.vercel.app',
-  'https://abishek-1.vercel.app/',
+  'https://abishek-1.vercel.app',
+  'http://localhost:3000',
   'http://localhost:3001',
   'http://localhost:3002',
 ];
+
 app.use(
   cors({
     origin: (origin, callback) => {
+      // Allow requests with no origin (like mobile apps or curl) 
+      // or if the origin is in our allowed list
       if (!origin || allowedOrigins.includes(origin)) {
         callback(null, true);
       } else {
+        console.log("Blocked by CORS:", origin); // Helps you see what was blocked in Render logs
         callback(new Error('Not allowed by CORS'));
       }
     },
     credentials: true,
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization']
   })
 );
 
@@ -60,7 +67,12 @@ app.use((err: Error, _req: express.Request, res: express.Response, _next: expres
 });
 
 // ── MongoDB connection + start ────────────────────────────────────
-const MONGO_URI = process.env.MONGODB_URI!;
+const MONGO_URI = process.env.MONGODB_URI;
+
+if (!MONGO_URI) {
+  console.error('❌ MONGODB_URI is missing in .env file');
+  process.exit(1);
+}
 
 mongoose
   .connect(MONGO_URI)
