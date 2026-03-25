@@ -6,6 +6,7 @@ import AcademicCards from '@/components/portfolio/AcademicCards';
 import AttendanceSection from '@/components/portfolio/AttendanceSection';
 import SkillsRadar from '@/components/portfolio/SkillsRadar';
 import PortfolioLoader from '@/components/portfolio/PortfolioLoader';
+import Image from 'next/image';
 
 export default function PortfolioPage() {
   const [loading, setLoading] = useState(true);
@@ -31,6 +32,38 @@ export default function PortfolioPage() {
             animate={!loading ? { opacity: 1, y: 0, filter: 'blur(0px)' } : {}}
             transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
           >
+            <div className="flex flex-col items-center mb-12">
+              <motion.div 
+                className="relative w-32 h-32 md:w-40 md:h-40 mb-6 group"
+                initial={{ scale: 0.8, opacity: 0 }}
+                animate={!loading ? { scale: 1, opacity: 1 } : {}}
+                transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
+              >
+                {/* Round Profile Image with Cyan Glow */}
+                <div className="w-full h-full rounded-full overflow-hidden border-2 border-cyan/50 shadow-[0_0_30px_rgba(0,229,255,0.3)] group-hover:shadow-[0_0_50px_rgba(0,229,255,0.5)] transition-all duration-500 relative z-10">
+                  <Image 
+                    src="/assets/profile.jpg" 
+                    alt="Abishek Raj" 
+                    fill 
+                    className="object-cover"
+                    priority
+                  />
+                </div>
+                {/* Orbital Ring Decoration */}
+                <div className="absolute -inset-2 border border-cyan/20 rounded-full animate-spin-slow pointer-events-none" />
+              </motion.div>
+              
+              <motion.h2 
+                className="font-orbitron font-black text-2xl md:text-3xl text-white tracking-[0.2em] uppercase mb-2"
+                initial={{ opacity: 0, y: 10 }}
+                animate={!loading ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.8, delay: 0.5 }}
+              >
+                ABISHEK RAJ
+              </motion.h2>
+              <div className="w-12 h-0.5 bg-nebula shadow-nebula-glow" />
+            </div>
+
             <div className="flex justify-center mb-8">
                <div className="section-divider-space" />
             </div>

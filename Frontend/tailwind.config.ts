@@ -34,6 +34,7 @@ const config: Config = {
         'slide-in-left': 'slideInLeft 0.8s ease-out forwards',
         'slide-in-right': 'slideInRight 0.8s ease-out forwards',
         'fade-up': 'fadeUp 0.8s ease-out forwards',
+        'spin-slow': 'spin 8s linear infinite',
       },
       keyframes: {
         float: {

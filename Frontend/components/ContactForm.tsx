@@ -61,7 +61,29 @@ export default function ContactForm() {
           <h2 className="font-orbitron font-black text-4xl md:text-5xl text-white uppercase tracking-widest text-shadow-glow">
             Let&apos;s Connect
           </h2>
-          <p className="font-rajdhani font-bold tracking-[0.4em] text-cyan uppercase mt-4 text-sm">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mt-6">
+            <a 
+              href="mailto:abh21341@gmail.com" 
+              className="group flex items-center gap-3 px-5 py-2.5 rounded-full bg-void/40 border border-cyan/20 hover:border-cyan/50 transition-all duration-300 backdrop-blur-sm shadow-inner"
+            >
+              <div className="w-8 h-8 rounded-full bg-cyan/10 flex items-center justify-center group-hover:bg-cyan group-hover:shadow-cyan-glow transition-all duration-300">
+                <svg viewBox="0 0 24 24" className="w-4 h-4 text-cyan group-hover:text-void transition-colors" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m22 2-10 11"/><path d="m22 2-7 20-4-9-9-4Z"/></svg>
+              </div>
+              <span className="font-rajdhani font-bold text-xs tracking-[0.2em] text-gray-400 group-hover:text-white transition-colors uppercase">abh21341@gmail.com</span>
+            </a>
+            <a 
+              href="https://www.linkedin.com/in/abishek-raj-8984473b0?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" 
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex items-center gap-3 px-5 py-2.5 rounded-full bg-void/40 border border-nebula/20 hover:border-nebula/50 transition-all duration-300 backdrop-blur-sm shadow-inner"
+            >
+              <div className="w-8 h-8 rounded-full bg-nebula/10 flex items-center justify-center group-hover:bg-nebula group-hover:shadow-nebula-glow transition-all duration-300">
+                <svg viewBox="0 0 24 24" className="w-4 h-4 text-nebula group-hover:text-void transition-colors" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+              </div>
+              <span className="font-rajdhani font-bold text-xs tracking-[0.2em] text-gray-400 group-hover:text-white transition-colors uppercase">LinkedIn Profile</span>
+            </a>
+          </div>
+          <p className="font-rajdhani font-bold tracking-[0.4em] text-cyan uppercase mt-8 text-[10px] opacity-60">
             Establish a Direct Uplink
           </p>
         </motion.div>
